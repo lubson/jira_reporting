@@ -1,4 +1,4 @@
 connection:
-	login: lhruban
-	pwd: 
-	url: 
+    login: lhruban
+    pwd  : 
+    url  : https://medfusion.atlassian.net

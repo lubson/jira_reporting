@@ -17,6 +17,10 @@ class Issue
     return @body["fields"]["issuetype"]["name"]
   end
 
+  def ooc?
+    return get_summary.include? "OOC"
+  end
+  
   def get_transitions
     transitions = []
     @histories.each do |history|
@@ -29,10 +33,6 @@ class Issue
          transitions << transition
        end
     end   
-    return transitions
-  end
-
-  def ooc?
-    return get_summary.include? "OOC"
+    transitions
   end
 end
