@@ -20,8 +20,6 @@ class IssueManager
   end
   
   def set_changelog!(issue)
-    puts issue.inspect
-    
     page = open(
       "#{@url}/rest/api/latest/issue/#{issue.get_key}?expand=changelog",
       :allow_redirections => :safe,
@@ -53,5 +51,6 @@ class IssueManager
 	      finished_issues << issue
 	    end
 	  end
+    finished_issues
 	end
 end
