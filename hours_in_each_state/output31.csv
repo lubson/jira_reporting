@@ -1,0 +1,103 @@
+Key, Date, From, To
+SON-2,0,Defined,Investigation In-Progress
+SON-2,23.666666666666668,Investigation In-Progress,Investigation Done
+SON-2,27.883333333333333,Investigation Done,Planned
+SON-2,236.31666666666666,In Dev,Waiting for QA
+SON-2,0.6833333333333333,Waiting for QA,In QA Review
+SON-81,0,Defined,Selected
+SON-81,207.15,Defined,Investigation In-Progress
+SON-81,168.06666666666666,Investigation In-Progress,Investigation Done
+SON-81,0.25,Investigation Done,Planned
+SON-81,466.05,In Dev,Waiting for QA
+SON-81,153.15,Waiting for QA,In QA Review
+SON-82,0,Defined,Selected
+SON-82,348.23333333333335,Defined,Investigation In-Progress
+SON-82,1.2333333333333334,Investigation In-Progress,Investigation Done
+SON-82,26.166666666666668,Investigation Done,Planned
+SON-82,298.3333333333333,In Dev,Waiting for QA
+SON-82,63.31666666666667,Waiting for QA,In QA Review
+SON-82,92.75,In QA Review,In Dev
+SON-82,2.95,In Dev,Waiting for QA
+SON-82,0.03333333333333333,Waiting for QA,In QA Review
+SON-83,0,Defined,Selected
+SON-83,138.81666666666666,Selected,Investigation In-Progress
+SON-83,27.866666666666667,Investigation In-Progress,Investigation Done
+SON-83,0.06666666666666667,Investigation Done,Planned
+SON-83,538.4333333333333,In Dev,Waiting for QA
+SON-83,84.73333333333333,Waiting for QA,In QA Review
+SON-83,74.18333333333334,In QA Review,In Dev
+SON-83,95.06666666666666,In Dev,Waiting for QA
+SON-83,22.85,Waiting for QA,In QA Review
+SON-90,0,Defined,Selected
+SON-90,165.16666666666666,Selected,Investigation In-Progress
+SON-90,0.0,Investigation In-Progress,Investigation Done
+SON-90,1.7333333333333334,Investigation Done,Planned
+SON-90,287.3,In Dev,Waiting for QA
+SON-90,28.133333333333333,Waiting for QA,In QA Review
+SON-117,0,Defined,Selected
+SON-117,0.0,Selected,Investigation In-Progress
+SON-117,0.0,Investigation In-Progress,Investigation Done
+SON-117,0.0,Investigation Done,Planned
+SON-117,338.2,In Dev,Waiting for QA
+SON-117,0.0,Waiting for QA,In QA Review
+SON-119,0,Defined,Selected
+SON-119,0.0,Selected,Investigation In-Progress
+SON-119,26.95,Investigation In-Progress,Investigation Done
+SON-119,0.0,Investigation Done,Planned
+SON-119,454.75,In Dev,Waiting for QA
+SON-119,24.366666666666667,Waiting for QA,In QA Review
+SON-149,0,Defined,Investigation In-Progress
+SON-149,1.2333333333333334,Investigation In-Progress,Investigation Done
+SON-149,3.783333333333333,Investigation Done,Planned
+SON-149,45.18333333333333,In Dev,Waiting for QA
+SON-149,117.66666666666667,Waiting for QA,In QA Review
+SON-149,24.5,In QA Review,In Dev
+SON-149,4.516666666666667,In Dev,Waiting for QA
+SON-149,143.88333333333333,Waiting for QA,In QA Review
+SON-167,0,Defined,Selected
+SON-167,286.95,Defined,Investigation In-Progress
+SON-167,70.31666666666666,Investigation In-Progress,Investigation Done
+SON-167,26.1,Investigation Done,Planned
+SON-167,456.2,In Dev,Waiting for QA
+SON-167,18.816666666666666,Waiting for QA,In QA Review
+SON-179,0,Defined,Investigation In-Progress
+SON-179,0.31666666666666665,Investigation In-Progress,Investigation Done
+SON-179,46.88333333333333,Investigation Done,Planned
+SON-179,71.88333333333334,In Dev,Waiting for QA
+SON-179,67.93333333333334,Waiting for QA,In QA Review
+SON-179,0.0,In QA Review,In Dev
+SON-179,2.05,In Dev,Waiting for QA
+SON-179,93.28333333333333,Waiting for QA,In QA Review
+SON-183,0,Defined,Investigation In-Progress
+SON-183,0.0,Investigation In-Progress,Investigation Done
+SON-183,0.0,Investigation Done,Planned
+SON-183,143.01666666666668,In Dev,Waiting for QA
+SON-183,120.41666666666667,Waiting for QA,In QA Review
+SON-207,0,Defined,Investigation In-Progress
+SON-207,0.0,Investigation In-Progress,Investigation Done
+SON-207,0.0,Investigation Done,Planned
+SON-207,18.0,In Dev,Waiting for QA
+SON-207,0.9833333333333333,Waiting for QA,In QA Review
+SON-216,0,Defined,Investigation In-Progress
+SON-216,0.0,Investigation In-Progress,Investigation Done
+SON-216,0.0,Investigation Done,Planned
+SON-216,15.766666666666667,In Dev,Waiting for QA
+SON-216,23.7,Waiting for QA,In QA Review
+SON-236,0,Defined,Investigation In-Progress
+SON-236,0.0,Investigation In-Progress,Investigation Done
+SON-236,0.0,Investigation Done,Planned
+SON-236,0.0,In Dev,Waiting for QA
+SON-236,0.0,Waiting for QA,In QA Review
+SON-236,0.0,In QA Review,In Dev
+SON-236,16.683333333333334,In Dev,Waiting for QA
+SON-236,21.033333333333335,Waiting for QA,In QA Review
+SON-239,0,Defined,Investigation In-Progress
+SON-239,0.0,Investigation In-Progress,Investigation Done
+SON-239,36.36666666666667,Investigation Done,Planned
+SON-239,260.1666666666667,In Dev,Waiting for QA
+SON-239,0.75,Waiting for QA,In QA Review
+SON-241,0,Defined,Investigation In-Progress
+SON-241,64.13333333333334,Investigation In-Progress,Investigation Done
+SON-241,60.266666666666666,Investigation Done,Planned
+SON-241,0.0,In Dev,Waiting for QA
+SON-241,0.0,Waiting for QA,In QA Review
