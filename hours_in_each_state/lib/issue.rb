@@ -24,15 +24,31 @@ class Issue
   def get_transitions
     transitions = []
     @histories.each do |history|
-       if (history["items"][0]["field"] == "status")
-         transition = [
-           history["items"][0]["fromString"], 
-           history["items"][0]["toString"], 
-           history["created"]
-         ]
-         transitions << transition
-       end
+      position = get_status_position_in history
+      if position >= 0
+        transition = extract_status_from_history history, position
+        transitions << transition
+      end
     end   
     transitions
   end
+
+private
+
+  def get_status_position_in(history)
+    position = -1
+    history["items"].each_with_index do |item, index|
+      position = index if item["field"] == "status"
+    end
+    position
+  end
+
+  def extract_status_from_history(history, position) 
+    status = [
+      history["items"][position]["fromString"], 
+      history["items"][position]["toString"], 
+      history["created"]
+    ]
+    return status
+  end  
 end

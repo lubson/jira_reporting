@@ -3,7 +3,7 @@ require_relative '../lib/issue_manager'
 #add argument for sprint and date, store file normally and use it as input for non existing R sript :)
 manager = IssueManager.new
 
-issues = manager.get_finished_issues_in_sprint(31,'2015-05-28')
+issues = manager.get_finished_issues_in_sprint(54,'2015-05-28')
 
 puts "Key, Date, From, To"
 

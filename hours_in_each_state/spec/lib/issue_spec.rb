@@ -1,5 +1,6 @@
 require 'issue'
 require 'json'
+require 'spec_helper'
 
 describe "An Issue" do
   
@@ -45,6 +46,10 @@ describe "An Issue" do
 	        },{
 	          "created":"2015-03-19T09:22:46.262-0500", 
 	          "items":[{
+	      	    "field":"Scheduled State", 
+	      	    "fromString":"Completed", 
+	      	    "toString":"Accepted"
+	          },{
 	      	    "field":"status", 
 	      	    "fromString":"Investigation Done", 
 	      	    "toString":"Accepted"
