@@ -31,6 +31,29 @@ class IssueManager
     issue.histories = parsed["changelog"]["histories"]
   end
 
+  def get_all_issues_in_the_sprint(sprint_id)
+  	  issues_in_sprint = []
+    
+    page = open("#{@url}/rest/api/latest/search?jql=sprint%20%3D%20#{sprint_id}%20AND%20(issuetype%20%3D%20Story%20OR%20issuetype%20%3D%20Bug)%20%20ORDER%20BY%20key%20ASC",
+	    :allow_redirections => :safe, 
+	    http_basic_authentication: [@login,@pwd] 
+    ) 
+
+	  parsed = JSON.parse page.to_a[0]
+	  
+	  issues = parsed["issues"]
+	  issues.each do |body|
+      
+      issue = Issue.new(body)
+    
+      
+      if (issue.get_type == "Story" or issue.get_type == "Bug") and not issue.ooc?
+	      issues_in_sprint << issue
+	    end
+	  end
+    issues_in_sprint
+  end
+  
   # stories and bugs without ooc
   def get_finished_issues_in_sprint(sprint_id, accepted_before)
 	  finished_issues = []

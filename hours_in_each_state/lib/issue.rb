@@ -1,3 +1,5 @@
+require 'date'
+
 class Issue
   attr_writer :body, :histories
 
@@ -47,7 +49,7 @@ private
     status = [
       history["items"][position]["fromString"], 
       history["items"][position]["toString"], 
-      history["created"]
+      DateTime.parse(history["created"])
     ]
     return status
   end  
