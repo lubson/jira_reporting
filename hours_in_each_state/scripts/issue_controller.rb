@@ -14,9 +14,8 @@ attr_reader :issue_manager
     
     issues.each do |issue|
       issue_manager.set_changelog!(issue)
-      recalculate_transitions_dates_according_sprint!(issue, sprint_start, sprint_end)
+      transitions = recalculate_transitions_dates_according_sprint!(issue, sprint_start, sprint_end)
       
-      transitions = issue.get_transitions
       
       previous_transition = nil
       transitions.each do |transition|
@@ -25,7 +24,7 @@ attr_reader :issue_manager
         else
             hours = ((transition[2] - previous_transition[2])*24 *60).to_i/60.0
         end
-        #puts "#{issue.get_key},#{hours},#{transition[0]}"
+        puts "#{issue.get_key},#{hours},#{transition[0]}"
         previous_transition = transition
       end 
     end
@@ -56,19 +55,17 @@ private
   def recalculate_transitions_dates_according_sprint!(issue, sprint_start, sprint_end)
     
     transitions = issue.get_transitions
+  
     transitions.each do |transition|
       set_date_according_sprint!(transition, sprint_start, sprint_end)
     end
   end
   
   def set_date_according_sprint!(transition, sprint_start, sprint_end)
-    puts 
-    puts transition[2].to_s + " " + sprint_start.to_s + " " + sprint_end.to_s
     if transition[2] < sprint_start
       transition[2] = sprint_start
     elsif transition[2] > sprint_end
       transition[2] = sprint_end
     end
-    puts transition[2]
   end
 end
