@@ -36,7 +36,6 @@ class Issue
   end
 
 private
-
   def get_status_position_in(history)
     position = -1
     history["items"].each_with_index do |item, index|

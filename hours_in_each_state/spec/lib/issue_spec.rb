@@ -1,6 +1,7 @@
 require 'issue'
 require 'json'
 require 'spec_helper'
+require 'date'
 
 describe "An Issue" do
   
@@ -84,7 +85,7 @@ describe "An Issue" do
   it "has apropriate transitions" do
     transitions = son_75.get_transitions
     expect(transitions.count).to be == 4
-    expect(transitions.last).to be == ["Investigation Done","Accepted","2015-03-19T09:22:46.262-0500"]
+    expect(transitions.last).to be == ["Investigation Done","Accepted", DateTime.parse("2015-03-19T09:22:46.262-0500")]
   end
   
 end
