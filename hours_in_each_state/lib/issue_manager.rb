@@ -60,6 +60,18 @@ class IssueManager
 
 private
 
+  def serialize(json_issue)
+    key         = json_issue["key"]
+    summary     = json_issue["fields"]["summary"]
+    type        = json_issue["fields"]["issuetype"]["name"]
+    points      = 0 #TODO implement, it is in changelog Story Point
+    description = json_issue["fields"]["description"]
+
+    #everytime bring changelog and serialize it here
+
+    return issue
+  end 
+
   def get_response(query)
     response = open(
       query,

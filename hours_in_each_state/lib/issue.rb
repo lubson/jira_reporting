@@ -1,10 +1,11 @@
 require 'date'
 
 class Issue
-  attr_writer :body, :histories
+  attr_accessor :key, :summary, :type, :points, :description, :labels, :histories
 
-  def initialize(body)
-    @body = body
+  def initialize(key, summary, type, points, description)
+    @key, @summary, @type, @points, @description = key, summary, type, points, description
+    @labels, @histories = [], []
   end
 
   def get_key
@@ -20,7 +21,7 @@ class Issue
   end
 
   def ooc?
-    return get_summary.include? "OOC"
+    return summary.include? "OOC"
   end
   
   def get_transitions
