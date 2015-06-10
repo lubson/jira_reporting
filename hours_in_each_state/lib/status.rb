@@ -5,7 +5,7 @@ class Status
 
   def initialize(name, created_at)
     @name, @created_at = name, created_at 
-    @effective_till = DateTime.now
+    @effective_till = DateTime.now #TODO refactor this behaviour, problems with timezones
   end
 
   def calculate_hours_spent_in_state(options = {})
@@ -15,7 +15,9 @@ class Status
     from = (created_at > from) ? created_at : from
     to	 = (effective_till < to) ? effective_till : to
 
-    return ((to - from)*24 *60).to_i/60.0
+    hours = ((to - from)*24 *60).to_i/60.0
+
+    return hours < 0 ? 0 : hours
   end 
 
   def ==(o)

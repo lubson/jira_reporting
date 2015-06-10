@@ -18,5 +18,9 @@ describe "A Status" do
     expect(status.calculate_hours_spent_in_state from: DateTime.parse("2015-03-20T09:52:46.262-0500"), to: DateTime.parse("2015-03-20T10:52:46.262-0500") ).to be == 1
   
     expect(status.calculate_hours_spent_in_state from: DateTime.parse("2015-02-20T09:52:46.262-0500"), to: DateTime.parse("2015-04-20T10:52:46.262-0500") ).to be == 27.5
+
+    expect(status.calculate_hours_spent_in_state from: DateTime.parse("2015-01-20T09:52:46.262-0500"), to: DateTime.parse("2015-01-20T11:52:46.262-0500") ).to be == 0
+
+    expect(status.calculate_hours_spent_in_state from: DateTime.parse("2015-05-20T09:52:46.262-0500"), to: DateTime.parse("2015-05-20T10:52:46.262-0500") ).to be == 0
   end  
 end
