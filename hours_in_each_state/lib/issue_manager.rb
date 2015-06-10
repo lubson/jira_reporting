@@ -1,8 +1,9 @@
 require 'yaml'
 require 'json'
-require "open-uri"
-require "open_uri_redirections"
-require_relative 'issue'
+require 'open-uri'
+require 'open_uri_redirections'
+#require_relative 'issue'
+require_relative 'issue_serializer'
 
 class IssueManager
   attr_reader :url, :login, :pwd
@@ -19,21 +20,21 @@ class IssueManager
     
   end
   
-  def set_changelog!(issue)
-    query = "#{@url}/rest/api/latest/issue/#{issue.get_key}?expand=changelog" 
-    parsed = get_response query
-    issue.histories = parsed["changelog"]["histories"]
-  end
+  # def set_changelog!(issue)
+  #   query = "#{@url}/rest/api/latest/issue/#{issue.get_key}?expand=changelog" 
+  #   parsed = get_response query
+  #   issue.histories = parsed["changelog"]["histories"]
+  # end
 
-  def get_all_issues_in_the_sprint(sprint_id)
+  def get_sprint_issues(sprint_id)
   	issues_in_sprint = []
-    query = "#{@url}/rest/api/latest/search?jql=sprint%20%3D%20#{sprint_id}%20AND%20(issuetype%20%3D%20Story%20OR%20issuetype%20%3D%20Bug)%20%20ORDER%20BY%20key%20ASC"
+    query = "#{@url}/rest/api/latest/search?jql=sprint%20%3D%20#{sprint_id}%20AND%20(issuetype%20%3D%20Story%20OR%20issuetype%20%3D%20Bug)%20%20ORDER%20BY%20key%20ASC&expand=changelog"
     parsed = get_response query 
 
 	  issues = parsed["issues"]
-	  issues.each do |body|  
-      issue = Issue.new(body)
-      if (issue.get_type == "Story" or issue.get_type == "Bug") and not issue.ooc?
+	  issues.each do |json_issue|  
+      issue = IssueSerializer.deserialize json_issue 
+      if (issue.type == "Story" or issue.type == "Bug") and not issue.ooc?
 	      issues_in_sprint << issue
 	    end
 	  end
@@ -41,37 +42,24 @@ class IssueManager
   end
   
   # stories and bugs without ooc
-  def get_finished_issues_in_sprint(sprint_id, accepted_before)
-	  finished_issues = []
-    query = "#{@url}/rest/api/latest/search?jql=sprint%20%3D%20#{sprint_id}%20AND%20(issuetype%20%3D%20Story%20OR%20issuetype%20%3D%20Bug)%20AND%20status%20changed%20to%20(Accept)%20before%20#{accepted_before}%20%20ORDER%20BY%20key%20ASC"
-    parsed = get_response query
+ #  def get_finished_issues_in_sprint(sprint_id, accepted_before)
+	#   finished_issues = []
+ #    query = "#{@url}/rest/api/latest/search?jql=sprint%20%3D%20#{sprint_id}%20AND%20(issuetype%20%3D%20Story%20OR%20issuetype%20%3D%20Bug)%20AND%20status%20changed%20to%20(Accept)%20before%20#{accepted_before}%20%20ORDER%20BY%20key%20ASC"
+ #    parsed = get_response query
 
-	  issues = parsed["issues"]
-	  issues.each do |body|
+	#   issues = parsed["issues"]
+	#   issues.each do |body|
       
-      issue = Issue.new(body)
+ #      issue = Issue.new(body)
       
-      if (issue.get_type == "Story" or issue.get_type == "Bug") and not issue.ooc?
-	      finished_issues << issue
-	    end
-	  end
-    finished_issues
-	end
+ #      if (issue.get_type == "Story" or issue.get_type == "Bug") and not issue.ooc?
+	#       finished_issues << issue
+	#     end
+	#   end
+ #    finished_issues
+	# end
 
 private
-
-  def serialize(json_issue)
-    key         = json_issue["key"]
-    summary     = json_issue["fields"]["summary"]
-    type        = json_issue["fields"]["issuetype"]["name"]
-    points      = 0 #TODO implement, it is in changelog Story Point
-    description = json_issue["fields"]["description"]
-
-    #everytime bring changelog and serialize it here
-
-    return issue
-  end 
-
   def get_response(query)
     response = open(
       query,
@@ -79,5 +67,5 @@ private
       http_basic_authentication: [@login,@pwd] 
     ) 
     return JSON.parse response.to_a[0]
-  end  
+  end   
 end
